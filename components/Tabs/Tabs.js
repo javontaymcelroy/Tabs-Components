@@ -1,9 +1,10 @@
 
 class TabLink {
   constructor(element) {
+    this.element = document.querySelector(`.tabs-items[data-tab='${element.dataset.tab}']`);
     // Assign this.element to the passed in DOM element
     // this.element;
-    
+    this.data =  
     // Get the custom data attribute on the Link
     // this.data;
     
@@ -12,8 +13,9 @@ class TabLink {
     
     // Using the Item element, create a new instance of the TabItem class
     // this.tabItem;
-    
+    this.element = new TabItem(this.element);
     // Add a click event listener on this instance, calling the select method on click
+    element.addEventListener('click', () => this.select() );
 
   };
 
@@ -58,5 +60,5 @@ class TabItem {
 - In your .forEach() method's callback function, return a new instance of TabLink and pass in each link as a parameter
 
 */
-
-links = document.querySelectorAll();
+const links = document.querySelectorAll('.tabs-link');
+links.forEach(element => new TabLink(element));
